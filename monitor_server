@@ -8,7 +8,7 @@ DISK=$(df -h | awk '$NF=="/"{printf "%s\t\t", $5}')
 CPU=$(top -bn1 | grep load | awk '{printf "%.2f%%\t\t\n", $(NF-2)}')
 DATE=$(date +%Y-%m-%d:%H:%M:%S)
 HOSTNAME=$(echo `ifconfig  2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'` | awk '{print $1}')
-echo -e "$MEMORY$DISK$CPU$HOSTNAME\t\t$DATE" #> /tmp/log$LOGDATE.txt
+echo -e "$MEMORY$DISK$CPU$HOSTNAME\t\t$DATE" > /tmp/log$LOGDATE
 sleep 5
 done
-~                                                                               
+                                                                              
